@@ -176,7 +176,7 @@ This is the **Express.js server** that acts as the bridge between the Raspberry 
 
 **What it does:**
 - Starts an HTTP server on **port 8000** (`0.0.0.0` — accessible from other devices on the network)
-- Connects to the Hyperledger Fabric blockchain via gRPC on startup
+- Connects to the Hyperledger Fabric blockchain via gRPC on startup (gRPC stands for Google Remote Procedure Call)
 - Serves the frontend dashboard at `/dashboard`
 - Routes all API calls through `/api/v1/*`
 - Automatically opens the dashboard in your default browser when started
