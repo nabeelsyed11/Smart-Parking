@@ -204,4 +204,3 @@ cd fabric-network
 ```
 
 To bring it back up again, repeat Steps 2-4 from the Server Setup.
-
