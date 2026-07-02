@@ -38,9 +38,15 @@ Copy the **entire `smart-parking` folder** to the new PC. You can **skip** these
 
 ### Step-by-Step Setup on the New PC
 
+> 💡 **IMPORTANT NOTE ABOUT FOLDER LOCATION**:
+> It does not matter where you save the `smart-parking` folder on the new PC (e.g., Downloads, Documents, Desktop). The project is fully portable. 
+> Before running the commands below, you simply need to open PowerShell and use the `cd` (Change Directory) command to navigate to wherever you saved the project. 
+> For example, if you saved it in Documents, open PowerShell and type:
+> `cd C:\Users\YourUserName\Documents\smart-parking`
+
 #### Step 1: Install Node.js dependencies
 ```powershell
-cd smart-parking\server-node
+cd server-node
 npm install
 ```
 This reads `package.json` and installs these 4 libraries into `node_modules/`:
@@ -51,7 +57,7 @@ This reads `package.json` and installs these 4 libraries into `node_modules/`:
 
 #### Step 2: Start the Blockchain Network
 ```powershell
-cd smart-parking\fabric-network
+cd ../fabric-network
 .\network.ps1 -Action up
 ```
 > If you get an "execution policy" error, run:
@@ -66,14 +72,13 @@ Wait ~30 seconds until you see `"Network up and channel created!"`
 
 #### Step 3: Deploy the Smart Contract (first time only)
 ```powershell
-cd smart-parking\fabric-network
 powershell -ExecutionPolicy Bypass -File .\deployCC.ps1
 ```
 This packages `chaincode/node/lib/parkingContract.js`, installs it on the peer, and commits it to the channel. Wait until you see `"Done!"`.
 
 #### Step 4: Start the Server
 ```powershell
-cd smart-parking\server-node
+cd ../server-node
 node index.js
 ```
 Or just double-click `scripts\start_server.bat`.
